@@ -1,21 +1,30 @@
 import { Component } from '@angular/core';
-import { MethodsListBuilder } from './directives/method-list-builder';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { MethodsListBuilder } from './core/method-list-builder';
+import { FormGroup, FormBuilder, NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'ngxev-root',
+  selector: 'nht-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ngx-ev-input';
+  title = 'ngx-hotkeytrapper';
   formulario: FormGroup;
   email;
 
+  hotkey1 = [
+    { keys: ['F1'], callback: 'alerta', method: 'registered' },
+    { keys: ['Control', 'a'], callback: 'valor', method: 'value' },
+    { keys: ['3', 'Tab'], callback: this.funcao1, method: 'function' }
+  ];
+
+  hotkey2 = {keys:['F1'], callback: 'alerta', method: 'registered'};
+
   constructor(private fb: FormBuilder) {
     MethodsListBuilder.setMethods({
-      alerta: (input) => {
-        alert('atalho foi acionado');
+      alerta: (input: NgControl) => {
+        console.log(input);
+        alert(`atalho foi acionado no control: \n ${input}`);
       }
     });
   }
@@ -27,8 +36,15 @@ export class AppComponent {
 
   iniciarFormulario(): any {
     this.formulario = this.fb.group({
-      Nome: [''],
-      Email: ['']
+      Nome1: [''],
+      Nome2: [''],
+      Nome3: [''],
+      Nome4: ['']
     });
+  }
+
+
+  funcao1() {
+    alert('foi chamado o methodo function');
   }
 }

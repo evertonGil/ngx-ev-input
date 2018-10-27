@@ -8,7 +8,32 @@
 <h2>Here are some links to help you start: </h2>
 
 <form [formGroup]="formulario">
-  <input type="text" name="nome" formControlName="Nome" ngxevShortcutInput methodRegistered="alerta" shortCutvalue="teste" [shortcutKeys]="['2','Tab']">
-</form>
-<input type="text" name="email" [(ngModel)]="email" ngxevShortcutInput methodRegistered="alerta" shortCutvalue="teste" [shortcutKeys]="['2','Tab']">
+  <div class="paragrafo">
+    <p>
+      [hotkeys]=" {{hotkey1 | json}}"
+    </p>
+    <input type="text" name="nome1" formControlName="Nome1" nht-hotkeyinput [hotkeys]="hotkey1">
+  </div>
 
+  <div class="paragrafo">
+    <p>
+      hotkeys="{{hotkey2 | json}}"
+    </p>
+    <input type="text" name="Nome2" formControlName="Nome2" nht-hotkeyinput hotkeys="{keys:['F1'], callback: 'alerta', method: 'registered'}">
+  </div>
+
+  <div class="paragrafo">
+    <p>
+      [hotkeys]="{{hotkey2 | json}}"
+    </p>
+    <input type="text" name="Nome3" formControlName="Nome3" nht-hotkeyinput [hotkeys]="hotkey2">
+  </div>
+
+  <div class="paragrafo">
+    <p>
+      [hotkeys]=""
+    </p>
+    <input type="text" name="Nome4" formControlName="Nome4" nht-hotkeyinput [hotkeys]="">
+  </div>
+</form>
+<!-- <input type="text" name="email" [(ngModel)]="email" nht-hotkeyinput hotkeys="" methodRegistered="alerta" shortCutvalue="teste" [shortcutKeys]="['2','Tab']"> -->

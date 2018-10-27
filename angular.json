@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-ev-input": {
+    "ngx-hotkeytrapper": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "ngxev",
+      "prefix": "nht",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-ev-input",
+            "outputPath": "dist/ngx-hotkeytrapper",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-ev-input:build"
+            "browserTarget": "ngx-hotkeytrapper:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-ev-input:build:production"
+              "browserTarget": "ngx-hotkeytrapper:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-ev-input:build"
+            "browserTarget": "ngx-hotkeytrapper:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "ngx-ev-input-e2e": {
+    "ngx-hotkeytrapper-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-ev-input:serve"
+            "devServerTarget": "ngx-hotkeytrapper:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-ev-input:serve:production"
+              "devServerTarget": "ngx-hotkeytrapper:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "ngx-ev-input"
+  "defaultProject": "ngx-hotkeytrapper"
 }
